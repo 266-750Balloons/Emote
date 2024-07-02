@@ -30,4 +30,6 @@ override_dh_auto_install:
 
 	dh_install static/emote.1 usr/share/man/man1/
 
+	dh_install static/config.py debian/emote/usr/lib/python3/dist-packages/config.py
+
 	gzip debian/emote/usr/share/man/man1/emote.1
