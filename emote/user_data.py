@@ -4,12 +4,8 @@ import shelve
 
 from emote import emojis, config
 
-DATA_DIR = (
-    os.path.join(Path.home(), ".local/share/Emote")
-    if not config.is_flatpak
-    else os.path.join(Path.home(), f".var/app/{config.app_id}/data")
-)
-SHELVE_PATH = os.path.join(DATA_DIR, "user_data")
+
+SHELVE_PATH = os.path.join(config.data_dir, "user_data")
 
 RECENT_EMOJIS = "recent_emojis"
 DEFAULT_RECENT_EMOJIS = ["🙂", "😄", "❤️", "👍", "🤞", "🔥", "🤣", "😍", "😭"]
@@ -70,7 +66,7 @@ SKINTONES = ["✋", "✋🏻", "✋🏼", "✋🏽", "✋🏾", "✋🏿"]
 
 
 # Ensure the data dir exists
-os.makedirs(DATA_DIR, exist_ok=True)
+os.makedirs(config.data_dir, exist_ok=True)
 
 
 def load_recent_emojis():

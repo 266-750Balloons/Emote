@@ -35,3 +35,9 @@ logo_path = (
     if is_flatpak
     else "static/logo.svg"
 )
+
+data_dir = (
+    os.path.join(Path.home(), ".local/share/Emote")
+    if not config.is_flatpak
+    else os.path.join(Path.home(), f".var/app/{config.app_id}/data")
+)
