@@ -3,6 +3,8 @@ from pathlib import Path
 
 version = open("/usr/share/emote/version", "r").read()
 
+is_snap = False
+is_flatpak = False
 is_wayland = os.environ.get("XDG_SESSION_TYPE", "").lower() == "wayland"
 is_debug = os.environ.get("GTK_DEBUG") == "interactive"
 is_dev = os.environ.get("ENV") == "dev"
